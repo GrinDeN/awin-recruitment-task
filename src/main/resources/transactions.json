@@ -1,0 +1,32 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "saleDate": "2022-06-05",
+      "products": [
+        {
+          "name": "apple",
+          "amountPaid": 1.53
+        },
+        {
+          "name": "pear",
+          "amountPaid": 2.66
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "saleDate": "2022-06-06",
+      "products": [
+        {
+          "name": "tomato",
+          "amountPaid": 3.53
+        },
+        {
+          "name": "potato",
+          "amountPaid": 5.66
+        }
+      ]
+    }
+  ]
+}

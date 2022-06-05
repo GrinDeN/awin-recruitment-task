@@ -1,0 +1,35 @@
+package awin.com.lwozniak.transactions.domain.enrichment;
+
+import awin.com.lwozniak.transactions.domain.transaction.Product;
+import awin.com.lwozniak.transactions.domain.transaction.Transaction;
+import lombok.Getter;
+import lombok.ToString;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@ToString
+public class EnrichedTransaction {
+
+    private final Long id;
+    private final LocalDate saleDate;
+    private final List<Product> products;
+    private final BigDecimal totalSum;
+
+    public EnrichedTransaction(Transaction transaction) {
+        this.id = transaction.getId();
+        this.saleDate = transaction.getSaleDate();
+        this.products = new ArrayList<>(transaction.getProducts());
+        this.totalSum = enrich();
+    }
+
+    private BigDecimal enrich() {
+        return products.stream()
+                .map(Product::getAmountPaid)
+                .reduce((amountPaid, totalSum) -> totalSum.add(amountPaid))
+                .orElse(BigDecimal.ZERO);
+    }
+}
