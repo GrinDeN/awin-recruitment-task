@@ -7,8 +7,9 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @ToString
@@ -22,14 +23,17 @@ public class EnrichedTransaction {
     public EnrichedTransaction(Transaction transaction) {
         this.id = transaction.getId();
         this.saleDate = transaction.getSaleDate();
-        this.products = new ArrayList<>(transaction.getProducts());
+        this.products = transaction.getProducts();
         this.totalSum = enrich();
     }
 
     private BigDecimal enrich() {
-        return products.stream()
-                .map(Product::getAmountPaid)
-                .reduce((amountPaid, totalSum) -> totalSum.add(amountPaid))
+        return Optional.ofNullable(products)
+                .map(Collection::stream)
+                .map(stream -> stream
+                        .map(Product::getAmountPaid)
+                        .reduce((amountPaid, totalSum) -> totalSum.add(amountPaid))
+                        .orElse(BigDecimal.ZERO))
                 .orElse(BigDecimal.ZERO);
     }
 }

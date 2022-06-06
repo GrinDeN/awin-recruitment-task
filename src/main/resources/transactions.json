@@ -20,11 +20,11 @@
       "products": [
         {
           "name": "tomato",
-          "amountPaid": 3.53
+          "amountPaid": 3.33
         },
         {
           "name": "potato",
-          "amountPaid": 5.66
+          "amountPaid": 4.20
         }
       ]
     }
