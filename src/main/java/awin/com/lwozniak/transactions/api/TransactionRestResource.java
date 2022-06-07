@@ -1,5 +1,12 @@
 package awin.com.lwozniak.transactions.api;
 
+import awin.com.lwozniak.transactions.api.enrichment.mapper.EnrichedTransactionMapper;
+import awin.com.lwozniak.transactions.api.enrichment.mapper.TransactionMapper;
+import awin.com.lwozniak.transactions.api.enrichment.request.CollectionOfTransactionsRequest;
+import awin.com.lwozniak.transactions.api.enrichment.request.SingleTransactionRequest;
+import awin.com.lwozniak.transactions.api.enrichment.response.CollectionOfEnrichedTransactionsResponse;
+import awin.com.lwozniak.transactions.api.enrichment.response.EnrichedTransactionDto;
+import awin.com.lwozniak.transactions.api.enrichment.response.SingleEnrichedTransactionResponse;
 import awin.com.lwozniak.transactions.domain.enrichment.EnrichedTransaction;
 import awin.com.lwozniak.transactions.service.TransactionEnricher;
 import lombok.AllArgsConstructor;

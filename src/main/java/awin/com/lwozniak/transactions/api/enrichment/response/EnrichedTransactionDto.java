@@ -1,5 +1,6 @@
-package awin.com.lwozniak.transactions.api;
+package awin.com.lwozniak.transactions.api.enrichment.response;
 
+import awin.com.lwozniak.transactions.api.enrichment.request.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package awin.com.lwozniak.transactions.api;
+package awin.com.lwozniak.transactions.api.enrichment.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+public
 class CollectionOfTransactionsRequest {
 
     @NonNull

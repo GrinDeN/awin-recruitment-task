@@ -1,5 +1,6 @@
-package awin.com.lwozniak.transactions.api;
+package awin.com.lwozniak.transactions.api.enrichment.mapper;
 
+import awin.com.lwozniak.transactions.api.enrichment.request.TransactionDto;
 import awin.com.lwozniak.transactions.domain.transaction.Transaction;
 import org.mapstruct.Mapper;
 import org.mapstruct.MapperConfig;
