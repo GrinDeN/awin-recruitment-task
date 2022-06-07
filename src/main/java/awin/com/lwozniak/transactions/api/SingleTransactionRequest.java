@@ -1,18 +1,15 @@
 package awin.com.lwozniak.transactions.api;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
+import lombok.NonNull;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ProductDto {
+class SingleTransactionRequest {
 
-    private String name;
-    private BigDecimal amountPaid;
+    @NonNull
+    private TransactionDto transaction;
 }

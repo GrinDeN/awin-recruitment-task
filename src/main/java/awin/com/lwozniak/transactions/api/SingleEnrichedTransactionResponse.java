@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@NoArgsConstructor
 @AllArgsConstructor
-class InputTransactions {
+@NoArgsConstructor
+@Getter
+class SingleEnrichedTransactionResponse {
 
-    @Getter
-    private List<TransactionDto> transactions;
+    private EnrichedTransactionDto enrichedTransaction;
 }

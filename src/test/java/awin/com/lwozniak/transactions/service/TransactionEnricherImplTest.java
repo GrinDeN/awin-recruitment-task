@@ -20,7 +20,7 @@ class TransactionEnricherImplTest {
     private static final BigDecimal TOMATO_AMOUNT_PAID = new BigDecimal("3.22");
     private static final BigDecimal POTATO_AMOUNT_PAID = new BigDecimal("5.33");
 
-    private TransactionEnricher transactionEnricher = new TransactionEnricherImpl();
+    private final TransactionEnricher transactionEnricher = new TransactionEnricherImpl();
 
     @Test
     void transactionEnricher_should_calculate_proper_sum_for_all_given_transactions() {

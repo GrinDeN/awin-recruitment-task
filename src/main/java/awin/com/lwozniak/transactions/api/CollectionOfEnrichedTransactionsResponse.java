@@ -1,18 +1,15 @@
 package awin.com.lwozniak.transactions.api;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.util.List;
 
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ProductDto {
+@Getter
+class CollectionOfEnrichedTransactionsResponse {
 
-    private String name;
-    private BigDecimal amountPaid;
+    private List<EnrichedTransactionDto> enrichedTransactions;
 }

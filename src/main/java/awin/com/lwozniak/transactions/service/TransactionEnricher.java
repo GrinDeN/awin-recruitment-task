@@ -8,4 +8,6 @@ import java.util.List;
 public interface TransactionEnricher {
 
     List<EnrichedTransaction> enrich(List<Transaction> transactions);
+
+    EnrichedTransaction enrich(Transaction transaction);
 }

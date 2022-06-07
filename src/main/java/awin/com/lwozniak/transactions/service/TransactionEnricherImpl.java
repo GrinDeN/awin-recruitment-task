@@ -16,4 +16,9 @@ public class TransactionEnricherImpl implements TransactionEnricher {
                 .map(EnrichedTransaction::new)
                 .collect(Collectors.toUnmodifiableList());
     }
+
+    @Override
+    public EnrichedTransaction enrich(Transaction transaction) {
+        return new EnrichedTransaction(transaction);
+    }
 }

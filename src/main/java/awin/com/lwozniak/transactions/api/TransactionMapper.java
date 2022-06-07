@@ -10,5 +10,7 @@ import java.util.List;
 @MapperConfig(uses = ProductMapper.class)
 public interface TransactionMapper {
 
-    List<Transaction> map(List<TransactionDto> transactions);
+    Transaction mapSingleToDomain(TransactionDto transaction);
+
+    List<Transaction> mapToDomain(List<TransactionDto> transactions);
 }
