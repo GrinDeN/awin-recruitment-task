@@ -6,11 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ApiConfig {
+public class ApiWebConfig {
 
     @Bean
-    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>
-    webServerFactoryCustomizer() {
+    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer() {
         return factory -> factory.setContextPath("/awin");
     }
 }

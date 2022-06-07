@@ -1,4 +1,4 @@
-package awin.com.lwozniak.transactions.api;
+package awin.com.lwozniak.transactions.api.enrichment;
 
 import awin.com.lwozniak.transactions.api.enrichment.mapper.EnrichedTransactionMapper;
 import awin.com.lwozniak.transactions.api.enrichment.mapper.TransactionMapper;
@@ -9,6 +9,8 @@ import awin.com.lwozniak.transactions.api.enrichment.response.EnrichedTransactio
 import awin.com.lwozniak.transactions.api.enrichment.response.SingleEnrichedTransactionResponse;
 import awin.com.lwozniak.transactions.domain.enrichment.EnrichedTransaction;
 import awin.com.lwozniak.transactions.service.TransactionEnricher;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,13 +23,15 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-class TransactionRestResource {
+@Tag(name = "Transactions")
+public class TransactionRestResource {
 
     private final TransactionMapper transactionMapper;
     private final EnrichedTransactionMapper enrichedTransactionMapper;
     private final TransactionEnricher transactionEnricher;
 
     @PostMapping(path = "/api/transactions/enrichment/single", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Enrichment for single transaction")
     public ResponseEntity<SingleEnrichedTransactionResponse> enrichSingleTransaction(
             @RequestBody @NonNull SingleTransactionRequest singleTransactionRequest) {
         EnrichedTransaction enriched = transactionEnricher.enrich(
@@ -37,6 +41,7 @@ class TransactionRestResource {
     }
 
     @PostMapping(path = "/api/transactions/enrichment/collection", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Enrichment collection of transactions")
     public ResponseEntity<CollectionOfEnrichedTransactionsResponse> enrichTransactions(
             @RequestBody @NonNull CollectionOfTransactionsRequest transactionListRequest) {
         List<EnrichedTransaction> enriched = transactionEnricher.enrich(
