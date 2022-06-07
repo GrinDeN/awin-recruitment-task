@@ -30,7 +30,7 @@ public class TransactionRestResource {
     private final EnrichedTransactionMapper enrichedTransactionMapper;
     private final TransactionEnricher transactionEnricher;
 
-    @PostMapping(path = "/api/transactions/enrichment/single", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/transactions/enrichment/single", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Enrichment for single transaction")
     public ResponseEntity<SingleEnrichedTransactionResponse> enrichSingleTransaction(
             @RequestBody @NonNull SingleTransactionRequest singleTransactionRequest) {
@@ -40,7 +40,7 @@ public class TransactionRestResource {
         return ResponseEntity.ok(new SingleEnrichedTransactionResponse(enrichedTransactionDto));
     }
 
-    @PostMapping(path = "/api/transactions/enrichment/collection", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/transactions/enrichment/collection", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Enrichment collection of transactions")
     public ResponseEntity<CollectionOfEnrichedTransactionsResponse> enrichTransactions(
             @RequestBody @NonNull CollectionOfTransactionsRequest transactionListRequest) {

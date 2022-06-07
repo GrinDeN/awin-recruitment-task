@@ -10,6 +10,6 @@ public class ApiWebConfig {
 
     @Bean
     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer() {
-        return factory -> factory.setContextPath("/awin");
+        return factory -> factory.setContextPath("/api");
     }
 }
